@@ -15,11 +15,11 @@
     <a-scene physics="debug: true">
       <!-- Player -->
       <a-entity camera look-controls></a-entity>
-      <a-entity static-body="shape: sphere; sphereRadius: 0.02;" vive-controls="hand: left" sphere-collider="objects: .cube;" grab></a-entity>
-      <a-entity static-body="shape: sphere; sphereRadius: 0.02;" vive-controls="hand: right" sphere-collider="objects: .cube;" grab></a-entity>
+      <a-entity static-body="shape: sphere; sphereRadius: 0.02;" vive-controls="hand: left" sphere-collider="objects: .block;" grab></a-entity>
+      <a-entity static-body="shape: sphere; sphereRadius: 0.02;" vive-controls="hand: right" sphere-collider="objects: .block;" grab></a-entity>
       
             <!-- Terrain -->
-      <a-grid static-body></a-grid>
+      <!-- <a-grid static-body></a-grid> -->
       <a-plane static-body color="#CCCCCC" height="100" width="100" rotation="-90 0 0"></a-plane>
 
       <!-- Lighting -->
