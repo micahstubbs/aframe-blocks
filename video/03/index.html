@@ -12,20 +12,13 @@
     <script src="aframe-extras.js"></script>
   </head>
   <body>
-    <a-scene physics="debug: false">
-      <!-- Player -->
-      <a-entity camera universal-controls></a-entity>
-      <a-entity static-body="shape: sphere; sphereRadius: 0.02;" vive-controls="hand: left" sphere-collider="objects: .block;" grab></a-entity>
-      <a-entity static-body="shape: sphere; sphereRadius: 0.02;" vive-controls="hand: right" sphere-collider="objects: .block;" grab></a-entity>
-      
-      <!-- Terrain -->
-      <!-- <a-grid static-body></a-grid> -->
+    <a-scene>
+      <a-assets>
+        <video id="gooey-exploding-scatterplot" autoplay loop="true" src="05-gooey-exploding-scatterplot.mp4">
+      </a-assets>
+      <!-- Using the asset management system. -->
+      <a-video src="#gooey-exploding-scatterplot" width="16" height="9" position="0 5 -12"></a-video>
       <a-plane static-body color="#CCCCCC" height="100" width="100" rotation="-90 0 0"></a-plane>
-
-      <!-- Lighting -->
-      <a-entity light="type: point; color: #f4f4f4; intensity: 0.2; distance: 0" position="8 10 18"></a-entity>
-      <a-entity light="type: point; color: #f4f4f4; intensity: 0.6; distance: 0" position="-8 10 -18"></a-entity>
-      <a-entity light="type: ambient; color: #f4f4f4; intensity: 0.4;" position="-8 10 -18"></a-entity>
     </a-scene>
     <script>
       function render () {
@@ -56,7 +49,7 @@
                 }))
                 .attr('dynamic-body', '')
                 // .attr('material', (d) => ({src: `url(http://bl.ocks.org/${d.owner.login}/raw/${d.id}/${d.sha}/thumbnail.png)`}));
-                .attr('material', (d) => ({src: `url(http://bl.ocks.org/${d.owner.login}/raw/${d.id}/thumbnail.png)`}));
+                .attr('material', 'src: #gooey-exploding-scatterplot');
         });
       }
 

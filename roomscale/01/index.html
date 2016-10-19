@@ -8,17 +8,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.7/d3.js"></script>
     <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v1.0.3/dist/aframe-physics-system.min.js"></script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r81/three.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r81/three.min.js"></script>
     <script src="aframe-extras.js"></script>
   </head>
   <body>
-    <a-scene physics="debug: false">
+    <a-scene physics="debug: true">
       <!-- Player -->
-      <a-entity camera universal-controls></a-entity>
+      <a-entity camera look-controls></a-entity>
       <a-entity static-body="shape: sphere; sphereRadius: 0.02;" vive-controls="hand: left" sphere-collider="objects: .block;" grab></a-entity>
       <a-entity static-body="shape: sphere; sphereRadius: 0.02;" vive-controls="hand: right" sphere-collider="objects: .block;" grab></a-entity>
       
-      <!-- Terrain -->
+            <!-- Terrain -->
       <!-- <a-grid static-body></a-grid> -->
       <a-plane static-body color="#CCCCCC" height="100" width="100" rotation="-90 0 0"></a-plane>
 
