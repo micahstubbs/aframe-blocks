@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no,maximum-scale=1">
+    <title>A-Frame / Bl.ocks / D3</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.7/d3.js"></script>
+    <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v1.0.3/dist/aframe-physics-system.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r81/three.min.js"></script>
+    <script src="aframe-extras.js"></script>
+  </head>
+  <body>
+    <a-scene physics="debug: true">
+      <!-- Player -->
+      <a-entity camera look-controls></a-entity>
+      <a-entity static-body="shape: sphere; sphereRadius: 0.02;" vive-controls="hand: left" sphere-collider="objects: .cube;" grab></a-entity>
+      <a-entity static-body="shape: sphere; sphereRadius: 0.02;" vive-controls="hand: right" sphere-collider="objects: .cube;" grab></a-entity>
+      
+            <!-- Terrain -->
+      <a-grid static-body></a-grid>
+      <a-plane static-body color="#CCCCCC" height="100" width="100" rotation="-90 0 0"></a-plane>
+
+      <!-- Lighting -->
+      <a-entity light="type: point; color: #f4f4f4; intensity: 0.2; distance: 0" position="8 10 18"></a-entity>
+      <a-entity light="type: point; color: #f4f4f4; intensity: 0.6; distance: 0" position="-8 10 -18"></a-entity>
+      <a-entity light="type: ambient; color: #f4f4f4; intensity: 0.4;" position="-8 10 -18"></a-entity>
+    </a-scene>
+    <script>
+      function render () {
+        d3.json('blocks.json', function(blocks) {
+          // in radians
+          const arcScale = d3.scaleLinear()
+            .domain([0, blocks.length])
+            .range([Math.PI,  2 * Math.PI]);
+
+          const r = 2;
+          d3.select('a-scene')
+            .append('a-entity')
+              .attr('id', 'blocks')
+            .selectAll('.block')
+              .data(blocks)
+              .enter()
+              .append('a-box')
+                .attr('class', 'block')
+                .attr('scale', {x: 0.96, y: 0.5, z: 0.05})
+                .attr('position', (d, i) => ({
+                  // x: Math.random() * 5 - 2.5,
+                  x: (6.5 - (2 * Math.PI)) + (r * Math.cos(arcScale(i))),
+                  // y: Math.random() * 5,
+                  // y: 5,
+                  y: ((blocks.length - i) / 10) + 0,
+                  // z: Math.random() * -5
+                  z: (-0.5 * Math.PI) + (r * Math.sin(arcScale(i)))
+                }))
+                .attr('dynamic-body', '')
+                // .attr('material', (d) => ({src: `url(http://bl.ocks.org/${d.owner.login}/raw/${d.id}/${d.sha}/thumbnail.png)`}));
+                .attr('material', (d) => ({src: `url(http://bl.ocks.org/${d.owner.login}/raw/${d.id}/thumbnail.png)`}));
+        });
+      }
+
+      var sceneEl = document.querySelector('a-scene');
+      if (sceneEl.hasLoaded) {
+        render();
+      } else {
+        sceneEl.addEventListener('loaded', render);
+      }
+    </script>
+  </body>
+</html>

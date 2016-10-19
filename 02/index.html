@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>A-Frame / Bl.ocks / D3</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.7/d3.js"></script>
+    <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v1.0.3/dist/aframe-physics-system.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-plane static-body color="#CCCCCC" height="100" width="100" rotation="-90 0 0"></a-plane>
+    </a-scene>
+    <script>
+      function render () {
+        d3.json('blocks.json', function(blocks) {
+          d3.select('a-scene')
+            .append('a-entity')
+              .attr('id', 'blocks')
+            .selectAll('.block')
+              .data(blocks)
+              .enter()
+              .append('a-box')
+                .attr('class', 'block')
+                .attr('scale', {x: 0.96, y: 0.5, z: 0.05})
+                .attr('position', (d, i) => ({
+                  // x: Math.random() * 5 - 2.5,
+                  x: i / 4 - 2.5,
+                  // y: Math.random() * 5,
+                  // y: i / 4,
+                  y: 5,
+                  // z: Math.random() * -5
+                  z: -3
+                }))
+                .attr('dynamic-body', '')
+                // .attr('material', (d) => ({src: `url(http://bl.ocks.org/${d.owner.login}/raw/${d.id}/${d.sha}/thumbnail.png)`}));
+                .attr('material', (d) => ({src: `url(http://bl.ocks.org/${d.owner.login}/raw/${d.id}/thumbnail.png)`}));
+        });
+      }
+
+      var sceneEl = document.querySelector('a-scene');
+      if (sceneEl.hasLoaded) {
+        render();
+      } else {
+        sceneEl.addEventListener('loaded', render);
+      }
+    </script>
+  </body>
+</html>
