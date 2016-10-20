@@ -1,4 +1,6 @@
-a concave arc of blocks
+block a-boxes in a semicircle droppped from a lower height so that they bounce less and stack neatly
+
+data-driven positions using the index value of the datum in the blocks data
 
 ---
 

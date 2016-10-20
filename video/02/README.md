@@ -1,4 +1,9 @@
-a concave arc of blocks
+a video in an aframe scene, larger and with a 'ground' plane
+
+[<a-video>](https://aframe.io/docs/0.3.0/primitives/a-video.html) tag docs
+[material](https://aframe.io/docs/0.2.0/components/material.html) component docs
+
+🙏 [@utopiah](https://twitter.com/utopiah) for being my A-Frame sherpa 😄
 
 ---
 

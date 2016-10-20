@@ -1,3 +1,9 @@
+block a-boxes in a circle, dropped from great height (so they bounce!)
+
+data-driven positions using the index value of the datum in the blocks data
+
+---
+
 all the blocks with thumbnail images created during the 2016 [#d3unconf](https://twitter.com/search?q=%23d3unconf&src=typd)
 
 here we use aframe's [`a-boxes`](https://aframe.io/docs/0.2.0/primitives/a-box.html), which are kind of like SVG [`rects`](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/rect) 
