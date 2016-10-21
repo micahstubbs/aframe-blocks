@@ -1,14 +1,74 @@
 [
-  {"id":"a85800be6d89c76c1ca98493ae777572","owner":{"login":"skokenes"},"description":"d3.lasso example - scatterplot", "video":"01-lasso.mp4"},
-  {"id":"c582a31d347e04dd75d5331b0074558e","owner":{"login":"veltman"},"description":"Jigsaw morphing", "video":"02-jigsaw-morphing.mp4"},
-  {"id":"90ff1d55f7a8fdbf42500558e1c6d1f5","owner":{"login":"armollica"},"description":"Draw a Text Path", "video":"03-text-on-path.mp4"},
-  {"id":"0258266bc25ed13da4909c975cd7b61d","owner":{"login":"Kcnarf"},"description":"Voronoï playground : undulating radial wave", "video":"04-voronoi-playground.mp4"},
-  {"id":"e5dfe0888968ee8c507f5469a4d62b6f","owner":{"login":"cmgiven"},"description":"Gooey Exploding Scatterplot", "video":"05-gooey-exploding-scatterplot.mp4"},
-  {"id":"f418c054e08107cfb7a2628b64beccbb","owner":{"login":""},"description":"", "video":"06-white-on-white.mp4"},
-  {"id":"","owner":{"login":""},"description":"", "video":"07-tsne.mp4"},
-  {"id":"","owner":{"login":""},"description":"", "video":"08-voronoi-relaxation.mp4"},
-  {"id":"","owner":{"login":""},"description":"", "video":"09-starry-night.mp4"},
-  {"id":"","owner":{"login":""},"description":"", "video":"10-war-games.mp4"},
-  {"id":"","owner":{"login":""},"description":"", "video":"11-royals.mp4"},
-  {"id":"","owner":{"login":""},"description":"", "video":"12-d3brokeandmadeart.mp4"}
+  {
+    "link": "https://bl.ocks.org/skokenes/a85800be6d89c76c1ca98493ae777572",
+    "githubID": "skokenes",
+    "description":"d3.lasso example - scatterplot",
+    "video":"01-lasso.mp4"
+  },
+  {
+    "link":"https://bl.ocks.org/veltman/c582a31d347e04dd75d5331b0074558e",
+    "githubID":"veltman",
+    "description":"Jigsaw morphing",
+    "video":"02-jigsaw-morphing.mp4"
+  },
+  {
+    "link":"https://bl.ocks.org/armollica/90ff1d55f7a8fdbf42500558e1c6d1f5",
+    "githubID":"armollica",
+    "description":"Draw a Text Path",
+    "video":"03-text-on-path.mp4"
+  },
+  {
+    "link":"https://bl.ocks.org/Kcnarf/0258266bc25ed13da4909c975cd7b61d",
+    "githubID":"Kcnarf",
+    "description":"Voronoï playground : undulating radial wave",
+    "video":"04-voronoi-playground.mp4"
+  },
+  {
+    "link":"https://bl.ocks.org/cmgiven/e5dfe0888968ee8c507f5469a4d62b6f",
+    "githubID":"cmgiven", 
+    "description":"Gooey Exploding Scatterplot",
+    "video":"05-gooey-exploding-scatterplot.mp4"
+  },
+  {
+    "link":"http://bl.ocks.org/tophtucker/f418c054e08107cfb7a2628b64beccbb",
+    "githubID":"tophtucker",
+    "description":"White on White", 
+    "video":"06-white-on-white.mp4"
+  },
+  {
+    "link":"http://distill.pub/2016/misread-tsne",
+    "githubID":"enjalot",
+    "description":"How to Use t-SNE Effectively",
+    "video":"07-tsne.mp4"
+  },
+  {
+    "link":"http://bl.ocks.org/alexmacy/3986db72dc4b81db8e788dd837ee6e3b",
+    "githubID":"alexmacy",
+    "description":"K-Means Voronoi Relaxation",
+    "video":"08-voronoi-relaxation.mp4"
+  },
+  {
+    "link":"http://bl.ocks.org/sxywu/e068ceaeeee7de8c9fd9ef80ef380813",
+    "githubID":"sxywu",
+    "description":"d3unconf 2016, v5",
+    "video":"09-starry-night.mp4"
+  },
+  {
+    "link":"http://bl.ocks.org/emeeks/912e24404b85a2af7dc7cb17927e816d",
+    "githubID":"emeeks",
+    "description":"Wargames Aesthetic",
+    "video":"10-war-games.mp4"
+  },
+  {
+    "link":"http://www.datasketch.es/october/code/nadieh/",
+    "githubID":"nbremer",
+    "description":"Royal Constellations",
+    "video":"11-royals.mp4"
+  },
+  {
+    "link":"https://twitter.com/Elijah_Meeks/status/786763114213617664",
+    "githubID":"emeeks",
+    "description":"#d3brokeandmadeart",
+    "video":"12-d3brokeandmadeart.mp4"
+  }
 ]
