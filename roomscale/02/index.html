@@ -3,14 +3,26 @@
   <head>
     <meta charset="utf-8">
     <title>A-Frame / Bl.ocks / D3</title>
+    <script src="aframe.min.js"></script>
+    <script src="aframe-extras.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.7/d3.js"></script>
-    <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v1.0.3/dist/aframe-physics-system.min.js"></script>
   </head>
   <body>
-    <a-scene>
-      <!--Terrain-->
+    <!-- normal earth gravity, normal physics mode -->
+    <a-scene physics="debug: false">
+
+      <!-- Player -->
+      <a-entity camera look-controls wasd-controls></a-entity>
+      <!--<a-entity id="leftController" static-body="shape: sphere; sphereRadius: 0.02;" vive-controls="hand: left" sphere-collider="objects: .throwable" grab></a-entity>-->
+      <!--<a-entity id="rightController" static-body="shape: sphere; sphereRadius: 0.02;" vive-controls="hand: right" sphere-collider="objects: .throwable" grab></a-entity>-->
+
+      <!-- Terrain -->
       <a-plane static-body color="#CCCCCC" height="100" width="100" rotation="-90 0 0"></a-plane>
+
+      <!-- Lighting -->
+      <a-entity light="type: point; color: #f4f4f4; intensity: 0.2; distance: 0" position="8 10 18"></a-entity>
+      <a-entity light="type: point; color: #f4f4f4; intensity: 0.6; distance: 0" position="-8 10 -18"></a-entity>
+      <a-entity light="type: ambient; color: #f4f4f4; intensity: 0.4;" position="-8 10 -18"></a-entity>
     </a-scene>
     <script>
       function render () {
@@ -22,16 +34,16 @@
           const table = {
             center: {
               x: 0.2,
-              y: 1,
-              z: -3
+              y: 0.75,
+              z: -2
             },
             width: 6,
-            height: 0.1,
+            height: 0.05,
             depth: 3,
             color: 'darkgray',
             leg: {
-              width: 0.2,
-              depth: 0.2
+              width: 0.1,
+              depth: 0.1
             }
           }
 
@@ -79,28 +91,60 @@
           // drop the cards on the table
           //
 
-          // in radians
+          // setup an arcScale for laying objects out
+          // in a half circle
           const arcScale = d3.scaleLinear()
             .domain([0, blocks.length])
-            .range([Math.PI,  2 * Math.PI]);
+            .range([Math.PI,  2 * Math.PI]); // remember, angles in radians
 
-          const r = 2;
+          //
+          // for each d3 example in the blocks data
+          // add an a-box to the scene
+          // with the thumbnail of that d3 example
+          // as the image texture for that a-box
+          //
+          const r = 0.5;
           d3.select('a-scene')
-            .append('a-entity')
-              .attr('id', 'blocks')
-            .selectAll('.block')
+             .append('a-entity')
+               .attr('id', 'blocks')
+            .selectAll('.throwable')
               .data(blocks)
               .enter()
               .append('a-box')
-                .attr('class', 'block')
-                .attr('scale', {x: 0.96, y: 0.5, z: 0.05})
+                .classed('block', true)
+                .classed('throwable', true)
+                .attr('dynamic-body', '')
+                .attr('velcity', '')
+                .attr('scale', {x: 0.48, y: 0.25, z: 0.025})
                 .attr('position', (d, i) => ({
                   x: (6.5 - (2 * Math.PI)) + (r * Math.cos(arcScale(i))),
-                  y: ((blocks.length - i) / 10) + 1,
+                  y: ((blocks.length - i) / 10) + table.center.y * 3,
                   z: (-0.5 * Math.PI) + (r * Math.sin(arcScale(i)))
                 }))
-                .attr('dynamic-body', '')
                 .attr('material', (d) => ({src: `url(http://bl.ocks.org/${d.owner.login}/raw/${d.id}/thumbnail.png)`}));
+
+          //
+          // after adding all grabbable objects to the scene
+          // add the Vive controllers
+          //
+
+          // add left controller 
+          d3.select('a-scene')
+            .append('a-entity')
+              .attr('id', 'leftController')
+              .attr('vive-controls', 'hand: left')
+              .attr('static-body', 'shape: sphere; sphereRadius: 0.02;')
+              .attr('sphere-collider', 'objects: .throwable')
+              .attr('grab', '');
+
+          // add right controller
+          d3.select('a-scene')
+            .append('a-entity')
+              .attr('id', 'rightController')
+              .attr('vive-controls', 'hand: right')
+              .attr('static-body', 'shape: sphere; sphereRadius: 0.02;')
+              .attr('sphere-collider', 'objects: .throwable')
+              .attr('grab', '');
         });
       }
 
