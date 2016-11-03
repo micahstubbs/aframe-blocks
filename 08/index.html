@@ -45,6 +45,13 @@
             .attr('depth', table.depth)
             .attr('color', table.color);
 
+          // http://stackoverflow.com/questions/5834318/are-variable-operators-possible
+          // operators
+          const ops = {
+            '+': (a, b) => a + b,
+            '-': (a, b) => a - b
+          };
+
           legPositionSigns = [
             ['+', '-', '+', '-'],
             ['-', '+', '+', '-'],
@@ -53,46 +60,19 @@
           ];
 
           legPositionSigns.forEach(d => {
+            const x = ops[d[1]](ops[d[0]](table.center.x, (table.width / 2)), (table.leg.width / 2));
+            const y = 0;
+            const z = ops[d[3]](ops[d[2]](table.center.z, (table.depth / 2)), (table.leg.depth / 2));
+
             d3.select('a-scene')
               .append('a-box')
               .attr('static-body', '')
-              .attr('position', `${table.center.x + (table.width / 2) - (table.leg.width / 2)} 0 ${table.center.z + (table.depth / 2) - (table.leg.depth / 2)}`)
+              .attr('position', `${x} ${y} ${z}`)
               .attr('width', table.leg.width)
               .attr('height', table.center.y * 2)
               .attr('depth', table.leg.depth)
               .attr('color', table.color);
           })
-
-
-          // front left leg
-          d3.select('a-scene')
-            .append('a-box')
-            .attr('static-body', '')
-            .attr('position', `${table.center.x - (table.width / 2) + (table.leg.width / 2)} 0 ${table.center.z + (table.depth / 2) - (table.leg.depth / 2)}`)
-            .attr('width', table.leg.width)
-            .attr('height', table.center.y * 2)
-            .attr('depth', table.leg.depth)
-            .attr('color', table.color);
-
-          // back right leg
-          d3.select('a-scene')
-            .append('a-box')
-            .attr('static-body', '')
-            .attr('position', `${table.center.x + (table.width / 2) - (table.leg.width / 2)} 0 ${table.center.z - (table.depth / 2) + (table.leg.depth / 2)}`)
-            .attr('width', table.leg.width)
-            .attr('height', table.center.y * 2)
-            .attr('depth', table.leg.depth)
-            .attr('color', table.color);
-
-          // back left leg
-          d3.select('a-scene')
-            .append('a-box')
-            .attr('static-body', '')
-            .attr('position', `${table.center.x - (table.width / 2) + (table.leg.width / 2)} 0 ${table.center.z - (table.depth / 2) + (table.leg.depth / 2)}`)
-            .attr('width', table.leg.width)
-            .attr('height', table.center.y * 2)
-            .attr('depth', table.leg.depth)
-            .attr('color', table.color);
 
           //
           // create cards with d3 blocks on them
