@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>A-Frame / Bl.ocks / D3</title>
+    <script src="aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v1.0.3/dist/aframe-physics-system.min.js"></script>
+    <script src="aframe-extras.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.7/d3.js"></script>
+  </head>
+  <body>
+    <!-- normal earth gravity, normal physics mode -->
+    <a-scene physics="debug: true; restitution: 0.001; friction: 0.5; gravity: -2">
+
+      <!-- Player -->
+      <a-entity camera look-controls wasd-controls></a-entity>
+
+      <!-- Terrain -->
+      <a-plane static-body color="#CCCCCC" height="100" width="100" rotation="-90 0 0"></a-plane>
+
+      <!-- Lighting -->
+      <a-entity light="type: point; color: #f4f4f4; intensity: 0.2; distance: 0" position="8 10 18"></a-entity>
+      <a-entity light="type: point; color: #f4f4f4; intensity: 0.6; distance: 0" position="-8 10 -18"></a-entity>
+      <a-entity light="type: ambient; color: #f4f4f4; intensity: 0.4;" position="-8 10 -18"></a-entity>
+    </a-scene>
+    <script>
+      function render () {
+        d3.json('blocks.json', function(blocks) {
+          //
+          // build a table
+          //
+
+          const table = {
+            center: {
+              x: 0.2,
+              y: 0.75,
+              z: -0.5
+            },
+            width: 4,
+            height: 0.05,
+            depth: 2,
+            color: 'darkgray',
+            leg: {
+              width: 0.1,
+              depth: 0.1
+            }
+          }
+
+          // table top
+          d3.select('a-scene')
+            .append('a-box')
+            .attr('static-body', '')
+            .attr('position', `${table.center.x} ${table.center.y} ${table.center.z}`)
+            .attr('width', table.width)
+            .attr('height', table.height)
+            .attr('depth', table.depth)
+            .attr('color', table.color);
+
+          // http://stackoverflow.com/questions/5834318/are-variable-operators-possible
+          // operators
+          const ops = {
+            '+': (a, b) => a + b,
+            '-': (a, b) => a - b
+          };
+
+          legPositionSigns = [
+            ['+', '-', '+', '-'],
+            ['-', '+', '+', '-'],
+            ['+', '-', '-', '+'],
+            ['-', '+', '-', '+']
+          ];
+
+          legPositionSigns.forEach(d => {
+            const x = ops[d[1]](ops[d[0]](table.center.x, (table.width / 2)), (table.leg.width / 2));
+            const y = 0;
+            const z = ops[d[3]](ops[d[2]](table.center.z, (table.depth / 2)), (table.leg.depth / 2));
+
+            d3.select('a-scene')
+              .append('a-box')
+              .attr('static-body', '')
+              .attr('position', `${x} ${y} ${z}`)
+              .attr('width', table.leg.width)
+              .attr('height', table.center.y * 2)
+              .attr('depth', table.leg.depth)
+              .attr('color', table.color);
+          })
+
+          //
+          // create cards with d3 blocks on them
+          // drop the cards on the table
+          //s
+
+          //
+          // for each d3 example in the blocks data
+          // add an a-box to the scene
+          // with the thumbnail of that d3 example
+          // as the image texture for that a-box
+          //
+          const r = 0.5;
+          d3.select('a-scene')
+             .append('a-entity')
+               .attr('id', 'blocks')
+            .selectAll('.throwable')
+              .data(blocks)
+              .enter()
+              .append('a-box')
+                .classed('block', true)
+                .classed('throwable', true)
+                //.attr('dynamic-body', '')
+                .attr('dynamic-body', '')
+                // .attr('velocity', '')
+                .attr('width', 0.48)
+                .attr('height', 0.25)
+                .attr('depth', 0.025)
+                //.attr('scale', {x: 0.48, y: 0.25, z: 0.025})
+                .attr('position', (d, i) => ({
+                  x: (i + 1) * 0.008,
+                  y: (i / 30) + 0.075 +  table.center.y,
+                  z: 0.05 - (Math.random() / 2)
+                }))
+                .attr('rotation', "-90 0 0")
+                .attr('material', (d) => ({src: `url(http://bl.ocks.org/${d.owner.login}/raw/${d.id}/thumbnail.png)`}));
+
+          //
+          // after adding all grabbable objects to the scene
+          // add the Vive controllers
+          //
+
+          // add left controller 
+          d3.select('a-scene')
+            .append('a-entity')
+              .attr('id', 'leftController')
+              .attr('vive-controls', 'hand: left')
+              .attr('static-body', 'shape: sphere; sphereRadius: 0.02;')
+              .attr('sphere-collider', 'objects: .throwable')
+              .attr('grab', '');
+
+          // add right controller
+          d3.select('a-scene')
+            .append('a-entity')
+              .attr('id', 'rightController')
+              .attr('vive-controls', 'hand: right')
+              .attr('static-body', 'shape: sphere; sphereRadius: 0.02;')
+              .attr('sphere-collider', 'objects: .throwable')
+              .attr('grab', '');
+        });
+      }
+
+      var sceneEl = document.querySelector('a-scene');
+      if (sceneEl.hasLoaded) {
+        render();
+      } else {
+        sceneEl.addEventListener('loaded', render);
+      }
+    </script>
+  </body>
+</html>
