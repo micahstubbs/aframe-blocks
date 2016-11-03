@@ -10,7 +10,7 @@
   </head>
   <body>
     <!-- normal earth gravity, normal physics mode -->
-    <a-scene physics="debug: true; restitution: 0.001; friction: 0.5; gravity: -9.8">
+    <a-scene physics="debug: true; restitution: 0.001; friction: 0.5; gravity: -2">
 
       <!-- Player -->
       <a-entity camera look-controls wasd-controls></a-entity>
@@ -34,11 +34,11 @@
             center: {
               x: 0.2,
               y: 0.75,
-              z: -2
+              z: -0.5
             },
-            width: 6,
+            width: 4,
             height: 0.05,
-            depth: 3,
+            depth: 2,
             color: 'darkgray',
             leg: {
               width: 0.1,
@@ -114,8 +114,8 @@
                 //.attr('scale', {x: 0.48, y: 0.25, z: 0.025})
                 .attr('position', (d, i) => ({
                   x: Math.random(),
-                  y: (i) + table.center.y + 2,
-                  z: -1.2 - (Math.random() / 2)
+                  y: (i) + table.center.y + 1,
+                  z: 0.05 - (Math.random() / 2)
                 }))
                 .attr('material', (d) => ({src: `url(http://bl.ocks.org/${d.owner.login}/raw/${d.id}/thumbnail.png)`}));
 
