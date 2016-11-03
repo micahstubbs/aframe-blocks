@@ -4,17 +4,16 @@
     <meta charset="utf-8">
     <title>A-Frame / Bl.ocks / D3</title>
     <script src="aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v1.0.3/dist/aframe-physics-system.min.js"></script>
     <script src="aframe-extras.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.7/d3.js"></script>
   </head>
   <body>
     <!-- normal earth gravity, normal physics mode -->
-    <a-scene physics="debug: false">
+    <a-scene physics="debug: true; restitution: 0.001; friction: 0.5; gravity: -9.8">
 
       <!-- Player -->
       <a-entity camera look-controls wasd-controls></a-entity>
-      <!--<a-entity id="leftController" static-body="shape: sphere; sphereRadius: 0.02;" vive-controls="hand: left" sphere-collider="objects: .throwable" grab></a-entity>-->
-      <!--<a-entity id="rightController" static-body="shape: sphere; sphereRadius: 0.02;" vive-controls="hand: right" sphere-collider="objects: .throwable" grab></a-entity>-->
 
       <!-- Terrain -->
       <a-plane static-body color="#CCCCCC" height="100" width="100" rotation="-90 0 0"></a-plane>
@@ -89,13 +88,7 @@
           //
           // create cards with d3 blocks on them
           // drop the cards on the table
-          //
-
-          // setup an arcScale for laying objects out
-          // in a half circle
-          const arcScale = d3.scaleLinear()
-            .domain([0, blocks.length])
-            .range([Math.PI,  2 * Math.PI]); // remember, angles in radians
+          //s
 
           //
           // for each d3 example in the blocks data
@@ -114,12 +107,15 @@
                 .classed('block', true)
                 .classed('throwable', true)
                 .attr('dynamic-body', '')
-                .attr('velcity', '')
-                .attr('scale', {x: 0.48, y: 0.25, z: 0.025})
+                // .attr('velocity', '')
+                .attr('width', 0.48)
+                .attr('height', 0.25)
+                .attr('depth', 0.025)
+                //.attr('scale', {x: 0.48, y: 0.25, z: 0.025})
                 .attr('position', (d, i) => ({
-                  x: (6.5 - (2 * Math.PI)) + (r * Math.cos(arcScale(i))),
-                  y: ((blocks.length - i) / 10) + table.center.y * 3,
-                  z: (-0.5 * Math.PI) + (r * Math.sin(arcScale(i)))
+                  x: Math.random(),
+                  y: (i) + table.center.y + 2,
+                  z: -1.2 - (Math.random() / 2)
                 }))
                 .attr('material', (d) => ({src: `url(http://bl.ocks.org/${d.owner.login}/raw/${d.id}/thumbnail.png)`}));
 
