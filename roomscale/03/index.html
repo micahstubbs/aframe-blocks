@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title>A-Frame / Bl.ocks / D3</title>
-    <script src="aframe.min.js"></script>
+    <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v1.0.3/dist/aframe-physics-system.min.js"></script>
     <script src="aframe-extras.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.7/d3.js"></script>
   </head>
   <body>
     <!-- normal earth gravity, normal physics mode -->
-    <a-scene physics="debug: true; restitution: 0.001; friction: 0.5; gravity: -2">
+    <a-scene physics="debug: false; restitution: 0.001; friction: 0.5; gravity: -2">
 
       <!-- Player -->
-      <a-entity camera look-controls wasd-controls></a-entity>
+      <a-entity camera look-controls wasd-controls="fly: true"></a-entity>
 
       <!-- Terrain -->
       <a-plane static-body color="#CCCCCC" height="100" width="100" rotation="-90 0 0"></a-plane>
@@ -119,7 +119,11 @@
                   z: 0.05 - (Math.random() / 2)
                 }))
                 .attr('rotation', "-90 0 0")
-                .attr('material', (d) => ({src: `url(http://bl.ocks.org/${d.owner.login}/raw/${d.id}/thumbnail.png)`}));
+                .attr('material', (d) => {
+                  const thumbnailUrl = `url(http://gist.githubusercontent.com/${d.owner.login}/${d.id}/raw/${d.sha}/thumbnail.png)`;
+                  // const thumbnailUrl = `url(http://bl.ocks.org/${d.owner.login}/raw/${d.id}/${d.sha}/thumbnail.png)`
+                  return { src: thumbnailUrl }; 
+                });
 
           //
           // after adding all grabbable objects to the scene

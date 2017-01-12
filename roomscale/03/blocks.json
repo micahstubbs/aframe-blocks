@@ -1,22 +1,162 @@
-[
-  {"id":"3757fe53ea94da4100db2e5071ea8289","owner":{"login":"micahstubbs"},"description":"d3 blocks on a-boxes"},
-  {"id":"e70e14483fe01eb0a3ea7d1d46a30571","owner":{"login":"vasturiano"},"description":"Musical Hexagons"},
-  {"id":"0ba5ee8bd3773d70462523679d4ef5a4","owner":{"login":"erlenstar"},"description":"Delaunay Force Mesh II"},
-  {"id":"de2b023d968abb7276b894409efdac56","owner":{"login":"enjalot"},"description":"merging selections"},
-  {"id":"7d3f8beb9faa183fc8d4fe3fd1610e00","owner":{"login":"enjalot"},"description":"d3 yoga"},
-  {"id":"57fbb830ba7e62caa46a82891168bc29","owner":{"login":"veltman"},"description":"CMYK zoom"},
-  {"id":"e8ccca52559796be775553b467593a9f","owner":{"login":"syntagmatic"},"description":"Continuous Legend"},
-  {"id":"6c73711f8f24af9808a9031a69f75b18","owner":{"login":"erlenstar"},"description":"Stereographic"},
-  {"id":"a1eb3bdecd2ab1be1de2425a260cc0f7","owner":{"login":"EfratVil"},"description":"Spirograph Geometric Flowers"},
-  {"id":"8c5a0e697673fd676be6823589e1ce31","owner":{"login":"jermspeaks"},"description":"stroke-dash-array"},
-  {"id":"b04d673fbfc665f2c98f382e2c79a9ad","owner":{"login":"git-ashish"},"description":"Voronoi Tessellation"},
-  {"id":"1fd92b8c309a0fdc71b0a64c788a70e7","owner":{"login":"git-ashish"},"description":"Canvas Voronoi"},
-  {"id":"6a6c2f11f9493adba658003a5a18a107","owner":{"login":"git-ashish"},"description":"Voronoi Labels"},
-  {"id":"a5d147cd45c624e8811238f0a5480439","owner":{"login":"LuisSevillano"},"description":"Comunidad Valenciana population(d3v4)"},
-  {"id":"cd0c38a20141e997e926592264067db3","owner":{"login":"ericsoco"},"description":"cluster force"},
-  {"id":"50a350e86de82278ffb2df248499d3e2","owner":{"login":"veltman"},"description":"CMYK halftone printing"},
-  {"id":"32f369bb437d7c23198b9b9ccc8d4751","owner":{"login":"micahstubbs"},"description":"d3.unconf 2016, v11"},
-  {"id":"a7495ca3d5b322a6697530feb62fceef","owner":{"login":"Fil"},"description":"Painting Manhattan-distance Voronoi"},
-  {"id":"99767e64051096388078913afca3ff4e","owner":{"login":"schnerd"},"description":"Choropleth with d3-cluster-scale"},
-  {"id":"82144236b9a920f77e3af1776d265c57","owner":{"login":"sxywu"},"description":"d3.unconf 2016, v10"}
+[  
+  {  
+    "id":"3757fe53ea94da4100db2e5071ea8289",
+    "sha":"f37923e838ee6db8fcb20091d305ebce04404f1b",
+    "description":"d3 blocks on a-boxes",
+    "owner":{  
+      "login":"micahstubbs"
+    }
+  },
+  {  
+    "id":"e70e14483fe01eb0a3ea7d1d46a30571",
+    "sha":"7e3906f8d8a9e5d79d61f2b77cc16f2829cb4a92",
+    "description":"Musical Hexagons",
+    "owner":{  
+      "login":"vasturiano"
+    }
+  },
+  {  
+    "id":"0ba5ee8bd3773d70462523679d4ef5a4",
+    "sha":"30d1ebaccc65e061989090e948526917c09db5f7",
+    "description":"Delaunay Force Mesh II",
+    "owner":{  
+      "login":"erlenstar"
+    }
+  },
+  {  
+    "id":"de2b023d968abb7276b894409efdac56",
+    "sha":"2a168d34c566b37bbdacbeb144c8ff9e14a32175",
+    "description":"merging selections",
+    "owner":{  
+      "login":"enjalot"
+    }
+  },
+  {  
+    "id":"7d3f8beb9faa183fc8d4fe3fd1610e00",
+    "sha":"b92274a2b8d9e8653ca020d89bc42e75c086bf09",
+    "description":"d3 yoga",
+    "owner":{  
+      "login":"enjalot"
+    }
+  },
+  {  
+    "id":"57fbb830ba7e62caa46a82891168bc29",
+    "sha":"a5ae874d673654d9fc7a18e09efca0591082b8bb",
+    "description":"CMYK zoom",
+    "owner":{  
+      "login":"veltman"
+    }
+  },
+  {  
+    "id":"e8ccca52559796be775553b467593a9f",
+    "sha":"269b11fe342729ca6a70db087ff0e3f2fd8b2122",
+    "description":"Continuous Legend",
+    "owner":{  
+      "login":"syntagmatic"
+    }
+  },
+  {  
+    "id":"6c73711f8f24af9808a9031a69f75b18",
+    "sha":"52e696e66b5bb8d833b82ea5b429532a4336f96f",
+    "description":"Stereographic",
+    "owner":{  
+      "login":"erlenstar"
+    }
+  },
+  {  
+    "id":"a1eb3bdecd2ab1be1de2425a260cc0f7",
+    "sha":"feca193fc32e1606b0e53a9a873c797f2e332b64",
+    "description":"Spirograph Geometric Flowers",
+    "owner":{  
+      "login":"EfratVil"
+    }
+  },
+  {  
+    "id":"8c5a0e697673fd676be6823589e1ce31",
+    "sha":"40dcc4e31ed53cb403e36dd07288678f21ae6cfe",
+    "description":"stroke-dash-array",
+    "owner":{  
+      "login":"jermspeaks"
+    }
+  },
+  {  
+    "id":"b04d673fbfc665f2c98f382e2c79a9ad",
+    "sha":"6e7cf7e122c99bfa6bfa47e6f035472020e9730a",
+    "description":"Voronoi Tessellation",
+    "owner":{  
+      "login":"git-ashish"
+    }
+  },
+  {  
+    "id":"1fd92b8c309a0fdc71b0a64c788a70e7",
+    "sha":"227f453f79e7f56e2c4cbec1dc0110bfe5960e18",
+    "description":"Canvas Voronoi",
+    "owner":{  
+      "login":"git-ashish"
+    }
+  },
+  {  
+    "id":"6a6c2f11f9493adba658003a5a18a107",
+    "sha":"d7c669281c38b23d8b21eecb56ed6991e6d2c10b",
+    "description":"Voronoi Labels",
+    "owner":{  
+      "login":"git-ashish"
+    }
+  },
+  {  
+    "id":"a5d147cd45c624e8811238f0a5480439",
+    "sha":"7341de0028d33120fa8316619b8d0e6fdb170410",
+    "description":"Comunidad Valenciana population(d3v4)",
+    "owner":{  
+      "login":"LuisSevillano"
+    }
+  },
+  {  
+    "id":"cd0c38a20141e997e926592264067db3",
+    "sha":"5766833b6df73d777c7b6f10b3fc088bf32d99b2",
+    "description":"cluster force",
+    "owner":{  
+      "login":"ericsoco"
+    }
+  },
+  {  
+    "id":"50a350e86de82278ffb2df248499d3e2",
+    "sha":"137caaf4c0de8590d808ee35bf2ab6668109374c",
+    "description":"CMYK halftone printing",
+    "owner":{  
+      "login":"veltman"
+    }
+  },
+  {  
+    "id":"32f369bb437d7c23198b9b9ccc8d4751",
+    "sha":"c7f2be04e7fe9a4781940e73fb1896eb471714db",
+    "description":"d3.unconf 2016, v11",
+    "owner":{  
+      "login":"micahstubbs"
+    }
+  },
+  {  
+    "id":"a7495ca3d5b322a6697530feb62fceef",
+    "sha":"719e306c9885a691244c01a228aa84ca594b299a",
+    "description":"Painting Manhattan-distance Voronoi",
+    "owner":{  
+      "login":"Fil"
+    }
+  },
+  {  
+    "id":"99767e64051096388078913afca3ff4e",
+    "sha":"ac755a56347c9941c8e0d27067e69cdc41b4c0b9",
+    "description":"Choropleth with d3-cluster-scale",
+    "owner":{  
+      "login":"schnerd"
+    }
+  },
+  {  
+    "id":"82144236b9a920f77e3af1776d265c57",
+    "sha":"ff6b6f78560e73ddc3735ded012fba7524bfbc8b",
+    "description":"d3.unconf 2016, v10",
+    "owner":{  
+      "login":"sxywu"
+    }
+  }
 ]
