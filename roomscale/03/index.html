@@ -149,6 +149,17 @@
               .attr('static-body', 'shape: sphere; sphereRadius: 0.02;')
               .attr('sphere-collider', 'objects: .throwable')
               .attr('grab', '');
+
+          //
+          // if a VR display (like the Vive headset begins presenting
+          // (if the scene goes into VR mode)
+          // reset the camera position and rotation
+          //
+          window.onvrdisplaypresentchange = function() {
+            d3.select('#cameraWrapper')
+              .attr('position', '0 0 0')
+              .attr('rotation', '0 0 0');
+          }
         });
       }
 
