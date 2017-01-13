@@ -1,8 +1,10 @@
 a roomscale VR scene targeting the [HTC Vive](https://en.wikipedia.org/wiki/HTC_Vive)
 
-in 2D mode, press W to go back and bring the scene into view. for a nicer camera position, checkout [this commit](https://gist.github.com/micahstubbs/201876c23dfe243f6e9a9c0be681367e/47adcf3b99846d309bb3770a516fa917782597f7) commit hash `47adcf3b99846d309bb3770a516fa917782597f7` follow the stackoverflow question [how to reset camera position on enter VR?](http://stackoverflow.com/questions/41624558/how-to-reset-camera-position-on-enter-vr) for a possible method to show a nice custom camera position in 2D mode and a glued-to-the-hmd camera position when in VR
-
 use the front-trigger on either Vive controller to pick up and inspect a block    
+
+in 2D mode, press W to go back and bring the scene into view. for a nicer camera position, checkout [this commit](https://gist.github.com/micahstubbs/201876c23dfe243f6e9a9c0be681367e/47adcf3b99846d309bb3770a516fa917782597f7) commit hash `47adcf3b99846d309bb3770a516fa917782597f7`  
+
+follow the stackoverflow question [how to reset camera position on enter VR?](http://stackoverflow.com/questions/41624558/how-to-reset-camera-position-on-enter-vr) for a possible method to show a nice custom camera position in 2D mode and a glued-to-the-hmd camera position when in VR  
 
 block a-boxes positions are closer to the origin than in [previous](http://bl.ocks.org/micahstubbs/a98418db846e7e5560f8b7c8b8224564) [examples](http://bl.ocks.org/micahstubbs/36e3cd39edc43330f2f999372ac7f8ad) so that they are within reach from in roomscale VR. ROADMAP: teleport locomotion ;-)
 
