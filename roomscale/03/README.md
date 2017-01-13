@@ -1,3 +1,7 @@
+the camera position is currently a bit off in the Vive.  checkout [this commit](https://gist.github.com/micahstubbs/201876c23dfe243f6e9a9c0be681367e/a7cb87b48131786cdb084e9bc199c06152eecaa0) commit hash `a7cb87b48131786cdb084e9bc199c06152eecaa0` for a version where the camera position tracks the Vive HMD position when in VR.  follow the stackoverflow question [how to reset camera position on enter VR?](http://stackoverflow.com/questions/41624558/how-to-reset-camera-position-on-enter-vr) for a possible method to show a custom camera position in 2D mode and a glued-to-the-hmd camera position when in VR
+
+--<>--
+
 a roomscale VR scene targeting the [HTC Vive](https://en.wikipedia.org/wiki/HTC_Vive)
 
 use the front-trigger on either Vive controller to pick up and inspect a block    
